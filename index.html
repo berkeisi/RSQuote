@@ -24,10 +24,18 @@
             color: red;
         }
 
-        /* Style for logo */
         .logo {
+            width: 300px;
+            height: auto;
             margin-top: 20px;
-            max-width: 300px;
+        }
+
+        /* Add style for the Call to Action */
+        .callToAction {
+            font-size: 1.2em;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -67,9 +75,12 @@
         <button type="button" onclick="calculateQuote()">Get Quote</button>
 
         <h3 id="quoteResult"></h3>
+
+        <!-- Call to Action Message -->
+        <p id="callToAction" class="callToAction" style="display: none;">Call us at (555) 123-4567 to schedule now!</p>
     </div>
 
-    <!-- Logo at the bottom -->
+    <!-- Add your logo here -->
     <img src="logo.png" alt="Your Logo" class="logo">
 
     <script>
@@ -94,6 +105,9 @@
 
             // Show the calculated quote result
             document.getElementById("quoteResult").innerText = "Estimated Cost: $" + totalCost;
+
+            // Show the Call to Action message
+            document.getElementById("callToAction").style.display = "block";
         }
     </script>
 
