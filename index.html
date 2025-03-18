@@ -23,6 +23,13 @@
             font-size: 0.8em;
             color: red;
         }
+
+        .note {
+            margin-top: 20px;
+            font-size: 1em;
+            font-style: italic;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -61,6 +68,11 @@
         <button type="button" onclick="calculateQuote()">Get Quote</button>
 
         <h3 id="quoteResult"></h3>
+    </div>
+
+    <!-- Note for customers to fill out contact info -->
+    <div class="note">
+        <p>If you would like us to contact you, please fill out your information below.</p>
     </div>
 
     <!-- Contact Info Form -->
@@ -116,6 +128,9 @@
                 const formData = new FormData(formElement);
                 const data = {};
                 formData.forEach((value, key) => { data[key] = value });
+
+                // Include the calculated quote amount
+                data['quoteAmount'] = document.getElementById("quoteResult").innerText.replace('Estimated Cost: $', '');
 
                 const googleScriptUrl = 'https://script.google.com/macros/s/AKfycbzCZDi9sm4Y2Dg4cjOUChNL9Zg12zIVtmNfBk_Hj4BbAIEXsHm7reFCEmR81Ulvw5JE/exec';
 
